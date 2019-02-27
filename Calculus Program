@@ -1,0 +1,76 @@
+# Imports random module
+import random
+
+def CalcTrainer():
+    
+    # Counts ammount of correct and wrong answers
+    wrong = 0
+    correct = 0
+    
+    # While loop to prompt new equations until user has given 10 correct answers
+    while True:
+        
+        # Picks a random number from range 1 through 3 to determine what kind of equation is prompted to user
+        eq = random.randint(1,3)
+        
+        # Picks random numbers to put into the equation
+        a = random.randint(-10,10)
+        b = random.randint(-10,10)
+        
+        # Stops program when user submitted 10 correct answers and displays score
+        if correct == 10:
+            score = (correct/(correct + wrong))*100
+            total = wrong + correct
+            print('\nCongratulations! You answered {} out of {} correct. You scored {}%!'.format(correct,total,score))
+            break
+        
+        # Promts addition equations to user when eq is randomly chosen to be 1
+        elif eq == 1:
+            
+            # Calculates actual answer to given equation
+            answer = a + b
+            
+            # Prompts equation to user and asks for input. Returns input as integer
+            pinp = int(input('{} + {} equals? '.format(a,b)))
+            
+            # Checks if user input is equal to actual anser. If yes, user receives compliment and a correct point. If not, user receives encouragement and a wrong point.
+            if answer == pinp:
+                print('VERY GOOD!')
+                correct += 1
+            else:
+                print('Better luck next time. You can do it!')
+                wrong += 1
+                
+        # Promts subtraction equations to user when eq is randomly chosen to be 2
+        elif eq == 2:
+            
+            # Calculates actual answer to given equation
+            answer = a - b
+            
+            # Prompts equation to user and asks for input. Returns input as integer
+            pinp = int(input('{} - {} equals? '.format(a,b)))
+            
+            # Checks if user input is equal to actual anser. If yes, user receives compliment and a correct point. If not, user receives encouragement and a wrong point.
+            if answer == pinp:
+                print('YOU ROCK!')
+                correct += 1
+            else:
+                print('Better luck next time. You can do it!')
+                wrong += 1
+                
+        # Promts multiplication equations to user when eq is randomly chosen to be 3
+        else:
+            
+            # Calculates actual answer to given equation
+            answer = a * b
+            
+            # Prompts equation to user and asks for input. Returns input as integer
+            pinp = int(input('{} * {} equals? '.format(a,b)))
+            
+            # Checks if user input is equal to actual anser. If yes, user receives compliment and a correct point. If not, user receives encouragement and a wrong point.
+            if answer == pinp:
+                print('YOU ARE A STAR!')
+                correct += 1
+            else:
+                print('Better luck next time. You can do it!')
+                wrong += 1
